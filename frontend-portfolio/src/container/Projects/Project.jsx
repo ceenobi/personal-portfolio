@@ -1,0 +1,201 @@
+import React, { useEffect, useState } from 'react'
+import {
+  Box,
+  Image,
+  Link,
+  Icon,
+  Text,
+  Heading,
+  Flex,
+  VStack,
+  HStack,
+  Container,
+  Grid,
+  useStyleConfig,
+} from '@chakra-ui/react'
+import { GoLinkExternal } from 'react-icons/go'
+import { AiFillGithub } from 'react-icons/ai'
+import { motion } from 'framer-motion'
+
+import { urlFor, client } from '../../client'
+import { useColors, Loading } from '../../constants'
+
+export default function Project() {
+  const [activeFilter, setActiveFilter] = useState('All')
+  const [filterWork, setFilterWork] = useState([])
+  const [works, setWorks] = useState([])
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
+  const [loading, setLoading] = useState(false)
+  const [cols] = useColors()
+
+  const hoverBoxStyle = {
+    _hover: { color: 'lightBlue' },
+  }
+
+  function Card(props) {
+    const { variant, ...rest } = props
+    const styles = useStyleConfig('Card', { variant })
+    return <Box __css={styles} {...rest} />
+  }
+
+  useEffect(() => {
+    setLoading(true)
+    const query = '*[_type == "works"] | order(title)'
+    client.fetch(query).then((data) => {
+      setWorks(data)
+      setFilterWork(data)
+      setLoading(false)
+    })
+  }, [])
+
+  const handleWorkFilter = (item) => {
+    setActiveFilter(item)
+    setAnimateCard([{ y: 100, opacity: 0 }])
+    
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }])
+      if (item === 'All') {
+        setFilterWork(works)
+      } else {
+        setFilterWork(works.filter((work) => work.tags.includes(item)))
+      }
+    }, 500)
+  }
+
+  return (
+    <Box py={5}>
+      <Container maxW='container.lg'>
+        <Text textStyle='h2' mt='6rem'>
+          Projects
+        </Text>
+        <Box mt='3rem'>
+          <Heading as='h4' fw='bold' letterSpacing='0.04em'>
+            Practise
+          </Heading>
+          <Text textStyle='p'>Projects I built from learning how to code </Text>
+        </Box>
+        <Flex
+          direction='row'
+          justify='center'
+          align='center'
+          flexWrap='wrap'
+          m='4rem 0 2rem'
+        >
+          {['Web App', 'UI/UX', 'React Js', 'All'].map((item, index) => (
+            <Box
+              textStyle='p'
+              fontWeight='bold'
+              key={index}
+              display='flex'
+              justifyContent='center'
+              alignItems='center'
+              onClick={() => handleWorkFilter(item)}
+              cursor='pointer'
+              className={`project-works ${
+                activeFilter === item ? 'project-works-active' : ''
+              }`}
+            >
+              {item}
+            </Box>
+          ))}
+        </Flex>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Grid
+            templateColumns={{
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
+              xl: 'repeat(3, 1fr)',
+              '2xl': 'repeat(3, 1fr)',
+              base: 'repeat(1, 1fr)',
+            }}
+            gap={6}
+            py='5rem'
+            as={motion.div}
+            animate={animateCard}
+            transition={{ duration: 0.5, delayChildren: 0.5 }}
+          >
+            {filterWork.map((work, index) => (
+              <Card
+                key={index}
+                bg={cols[index] || cols[0]}
+                variant='rounded'
+                position='relative'
+                as={Link}
+                href={work.projectLink}
+                isExternal
+              >
+                <Image
+                  src={urlFor(work.imgUrl)}
+                  alt={work.name}
+                  h='230px'
+                  w='100%'
+                  borderRadius='md'
+                  objectFit='cover'
+                  mb={2}
+                />
+
+                <VStack alignItems='left' spacing='6px' p={3}>
+                  <HStack spacing='2px'>
+                    <Text
+                      textStyle='p'
+                      fontWeight='bold'
+                      as={Link}
+                      href={work.projectLink}
+                      isExternal
+                    >
+                      {' '}
+                      {work.title}
+                    </Text>
+                    <Icon as={GoLinkExternal} />
+                  </HStack>
+                  <Text textStyle='sm' textAlign='start'>
+                    {' '}
+                    {work.description}
+                  </Text>
+                </VStack>
+                <Box mt={4} p={2}>
+                  <Flex
+                    justify='space-between'
+                    align='center'
+                    position='absolute'
+                    bottom='0px'
+                    right='22px'
+                    left='22px'
+                  >
+                    <Text>
+                      {work.tags[0]} | {work.tags[1]}
+                    </Text>
+                    <Link href={work.codeLink} isExternal>
+                      <Icon
+                        as={AiFillGithub}
+                        boxSize='40px'
+                        sx={hoverBoxStyle}
+                      />
+                    </Link>
+                  </Flex>
+                </Box>
+              </Card>
+            ))}
+          </Grid>
+        )}
+        <Flex justify='flex-end' alignItems='center'>
+          <HStack spacing='2px' _hover={{ color: 'pallete.lightPink' }}>
+            <Text
+              textStyle='p'
+              as={Link}
+              fontWeight='bold'
+              href='https://wwww.github.com/ceenobi'
+              isExternal
+            >
+              click here to see more
+            </Text>
+            <Icon as={GoLinkExternal} />
+          </HStack>
+        </Flex>
+      </Container>
+    </Box>
+  )
+}

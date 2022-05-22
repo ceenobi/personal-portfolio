@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+.header-effect {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 120px;
+  margin: 10px 0;
+}
+
+.text-effect {
+  color: red;
+  animation-name: example;
+  animation-duration: 6s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  from {color: red;}
+  to {color: yellow;}
+}
+
+
+
