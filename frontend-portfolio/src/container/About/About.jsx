@@ -132,15 +132,15 @@ export default function About() {
               </HStack>
             </Box>
           </Flex>
-          <Flex
-            flex='1'
-            overflowY='scroll'
-            justify='flex-start'
-            as={motion.div}
-          >
-            {loading ? (
-              <Loading />
-            ) : (
+          {loading ? (
+            <Loading />
+          ) : (
+            <Flex
+              flex='1'
+              overflowY='scroll'
+              justify='flex-start'
+              as={motion.div}
+            >
               <Box
                 p={4}
                 as={motion.div}
@@ -161,7 +161,11 @@ export default function About() {
                     </Box>
                   </>
                 ))}
-                <Divider orientation='horizontal' mt='2rem' bg='pallete.deepPurple'/>
+                <Divider
+                  orientation='horizontal'
+                  mt='2rem'
+                  bg='pallete.deepPurple'
+                />
                 <>
                   {experiences.map((experience) => (
                     <Box as={motion.div} key={experience.year} mt='2rem'>
@@ -185,8 +189,8 @@ export default function About() {
                   ))}
                 </>
               </Box>
-            )}
-          </Flex>
+            </Flex>
+          )}
         </Flex>
       </Container>
     </Box>

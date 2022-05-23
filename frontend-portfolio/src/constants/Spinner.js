@@ -5,7 +5,6 @@ export default function Loading() {
   return (
     <Flex
       justifyContent='center'
-      minHeight='100vh'
       align='center'
     >
       <Spinner
