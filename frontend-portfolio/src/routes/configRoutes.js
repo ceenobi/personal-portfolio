@@ -1,9 +1,10 @@
 import { lazy } from 'react'
+import index from '../components'
 
 const routes = [
   {
     path: '/',
-    element: lazy(() => import('../components')),
+    element: index,
   },
   {
     path: '/projects',
@@ -12,6 +13,10 @@ const routes = [
   {
     path: '/about',
     element: lazy(() => import('../container/About/About')),
+  },
+  {
+    path: '*',
+    element: lazy(() => import('../components/NoPage')),
   },
 ]
 
