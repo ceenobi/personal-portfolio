@@ -22,8 +22,8 @@ body {
 }
 
 @keyframes example {
-  from {color: red;}
-  to {color: yellow;}
+  from {color: #b41111;}
+  to {color: #D69E2E;}
 }
 
 

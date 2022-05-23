@@ -13,29 +13,31 @@ function App() {
   const color = useColorModeValue('pallete.lightPink', 'pallete.lightBlue')
   const bg = useColorModeValue('pallete.lightYellow', 'pallete.deepPurple')
   return (
-    <Box
-      as={motion.div}
-      whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
       <Navbar colorMode={colorMode} toggleColorMode={toggleColorMode} />
-      <Routes>
-        {routes.map((route, i) => {
-          return (
-            <Route
-              key={i}
-              path={route.path}
-              element={
-                <Suspense fallback={<Loading />}>
-                  <route.element color={color} bg={bg} />
-                </Suspense>
-              }
-            />
-          )
-        })}
-      </Routes>
-      <Footer />
-    </Box>
+      <Box
+        as={motion.div}
+        whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+        transition={{ duration: 0.5 }}
+      >
+        <Routes>
+          {routes.map((route, i) => {
+            return (
+              <Route
+                key={i}
+                path={route.path}
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <route.element color={color} bg={bg} />
+                  </Suspense>
+                }
+              />
+            )
+          })}
+        </Routes>
+        <Footer />
+      </Box>
+    </>
   )
 }
 

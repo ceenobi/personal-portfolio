@@ -181,7 +181,7 @@ export default function Project() {
             ))}
           </Grid>
         )}
-        <Flex justify='flex-end' alignItems='center'>
+        <Flex justify={{base:'center', lg:'flex-end'}} alignItems='center'>
           <HStack spacing='2px' _hover={{ color: 'pallete.lightPink' }}>
             <Text
               textStyle='p'

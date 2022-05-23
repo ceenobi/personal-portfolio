@@ -8,6 +8,7 @@ import customTheme from './theme/theme'
 
 import './index.css';
 import App from './App';
+import {AppError} from './errorBoundary'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
     <ChakraProvider theme={customTheme}>
       <ColorModeScript initialColorMode={customTheme.config.initialColorMode} />
       <Router>
-        <App />
+        <AppError>
+          <App />
+        </AppError>
       </Router>
     </ChakraProvider>
   </React.StrictMode>

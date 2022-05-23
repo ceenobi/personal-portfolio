@@ -14,16 +14,6 @@ const exploreRouterMenu = [
     sectionLabel: 'About',
     path: 'about',
   },
-  //   {
-  //     sectionId: 'Skills',
-  //     sectionLabel: 'Skills',
-  //     path: 'skills',
-  //   },
-  //   {
-  //     sectionId: 'Contact',
-  //     sectionLabel: 'Contact',
-  //     path: 'contact',
-  //   },
 ]
 
 export default exploreRouterMenu

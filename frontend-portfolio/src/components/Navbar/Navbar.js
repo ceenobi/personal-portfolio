@@ -63,8 +63,8 @@ export default function Navbar({ colorMode, toggleColorMode }) {
             justify='center'
             display={{ base: 'none', md: 'block' }}
           >
-            <>
-              {exploreRouterMenu.map((menu) => (
+            {exploreRouterMenu.map((menu) => (
+              <>
                 <Text
                   as={NavLink}
                   textStyle='p'
@@ -75,9 +75,10 @@ export default function Navbar({ colorMode, toggleColorMode }) {
                   transition='all 0.3s ease-in-out'
                 >
                   {menu.sectionLabel}
-                </Text>
-              ))}
-            </>
+                </Text>         
+              </>
+            ))}
+          
           </HStack>
         </Flex>
         <Flex>

@@ -57,7 +57,6 @@ const customTheme = extendTheme(
         letterSpacing: '0.04em',
         fontSize: '18px',
         fontFamily: 'Dosis',
-       
       },
     },
     components: {
@@ -109,11 +108,11 @@ const customTheme = extendTheme(
         },
         _activeLink: {
           outline: 'none',
-          borderBottom: '1px solid #822727',
+          borderBottom: '1px solid #f582AE',
           fontWeight: 'extrabold',
           transition: 'all 0.3s ease-in-out',
           _hover: {
-            color: 'pallete.lightBlue',
+            color: 'pallete.lightPink',
           },
         },
         a: {
