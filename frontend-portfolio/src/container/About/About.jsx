@@ -46,10 +46,7 @@ export default function About() {
   return (
     <Box py={5}>
       <Container maxW='container.lg'>
-        <Text textStyle='h2' mt='4rem' p={4}>
-          About
-        </Text>
-        <Flex direction={{ base: 'column', lg: 'row' }} mt='3rem' w='100%'>
+        <Flex direction={{ base: 'column', lg: 'row' }} mt='5rem' w='100%'>
           <Flex
             flex='0.65'
             flexWrap='wrap'
@@ -67,10 +64,10 @@ export default function About() {
               transition={{ duration: 0.5 }}
               textAlign={{ base: 'center', lg: 'left' }}
             >
-              <Flex justify={{ base: 'center', lg: 'flex-start' }}>
+              <Flex justify={{ base: 'center', lg: 'flex-start' }} mb={2}>
                 <Avatar
                   src='https://res.cloudinary.com/ceenobi/image/upload/q_auto/v1653075291/icons/1AE31A5C-9AE2-4A25-850F-67ACF1CF0E61_vmvcsv.webp'
-                  size='2xl'
+                  boxSize='250px'
                   name='Charles Mbachu'
                 />
               </Flex>
@@ -135,12 +132,7 @@ export default function About() {
           {loading ? (
             <Loading />
           ) : (
-            <Flex
-              flex='1'
-              overflowY='scroll'
-              justify='flex-start'
-              as={motion.div}
-            >
+            <Flex flex='1' justify='flex-start' as={motion.div}>
               <Box
                 p={4}
                 as={motion.div}
@@ -149,7 +141,12 @@ export default function About() {
               >
                 {abouts.map((about) => (
                   <>
-                    <Box key={about.title}>
+                    <Box
+                      key={about.title}
+                      as={motion.div}
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <br />
                       <br />
                       <Heading as='h4' fw='bold' letterSpacing='0.04em'>
@@ -168,7 +165,13 @@ export default function About() {
                 />
                 <>
                   {experiences.map((experience) => (
-                    <Box as={motion.div} key={experience.year} mt='2rem'>
+                    <Box
+                      as={motion.div}
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                      key={experience.year}
+                      mt='2rem'
+                    >
                       <Text textStyle='p'>{experience.year}</Text>
                       <Box>
                         {experience.works.map((work, index) => (

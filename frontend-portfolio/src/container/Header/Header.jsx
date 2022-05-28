@@ -76,8 +76,8 @@ export default function Header({ color }) {
           color='pallete.deepPurple'
           bg='pallete.eggYellow'
           p={3}
-          mt={8}
-          w='250px'
+          mt={10}
+          w='245px'
         >
           <LinkOverlay
             href='https://drive.google.com/file/d/1cBqQwkIlBfi26kf5hxMMl7lnTpZMWUQ7/view?usp=sharing'

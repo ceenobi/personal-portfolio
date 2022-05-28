@@ -23,6 +23,7 @@ const customTheme = extendTheme(
         lightPink: '#f582AE',
         eggYellow: '#F3D2C1',
         mildDark: '#1a1e22',
+        goldDark: '#FFFFFF',
       },
     },
     fonts: {
@@ -99,7 +100,7 @@ const customTheme = extendTheme(
           color:
             props.colorMode === 'dark'
               ? 'pallete.deepPurple'
-              : 'pallete.eggYellow',
+              : 'pallete.goldDark',
           bg:
             props.colorMode === 'dark'
               ? 'pallete.lightYellow'
@@ -108,12 +109,11 @@ const customTheme = extendTheme(
         },
         _activeLink: {
           outline: 'none',
-          borderBottom: '1px solid #f582AE',
+          borderBottom: '4px solid #f582AE',
           fontWeight: 'extrabold',
           transition: 'all 0.3s ease-in-out',
           _hover: {
-            color: 'pallete.lightPink',
-          },
+            color: 'pallete.lightPink',          },
         },
         a: {
           fontSize: '16px',

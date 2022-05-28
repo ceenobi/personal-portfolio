@@ -65,10 +65,7 @@ export default function Project() {
   return (
     <Box py={5}>
       <Container maxW='container.lg'>
-        <Text textStyle='h2' mt='6rem'>
-          Projects
-        </Text>
-        <Box mt='3rem'>
+        <Box mt='5rem'>
           <Heading as='h4' fw='bold' letterSpacing='0.04em'>
             Practise
           </Heading>

@@ -31,7 +31,7 @@ export default function Navbar({ colorMode, toggleColorMode }) {
   }
 
   const innerBoxStyles = {
-    background: 'transparent',
+    background: 'rgba(255,255,255,0.25)',
     backdropFilter: 'auto',
     backdropBlur: '2xl',
   }
@@ -73,12 +73,12 @@ export default function Navbar({ colorMode, toggleColorMode }) {
                   textTransform='uppercase'
                   fontWeight='semibold'
                   transition='all 0.3s ease-in-out'
+                  _hover={{ borderBottom: '4px solid #f582AE' }}
                 >
                   {menu.sectionLabel}
-                </Text>         
+                </Text>
               </>
             ))}
-          
           </HStack>
         </Flex>
         <Flex>
