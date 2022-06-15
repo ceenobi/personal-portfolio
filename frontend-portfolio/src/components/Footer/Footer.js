@@ -24,7 +24,7 @@ export default function Footer() {
   }
   return (
     <Box mt='5rem' py={5}>
-      <Container maxW='container.lg' m='auto'>
+      <Container maxW='container.lg'>
         <Grid
           templateColumns={{
             sm: 'repeat(1, 1fr)',
@@ -33,7 +33,7 @@ export default function Footer() {
             xl: 'repeat(4, 1fr)',
             base: 'repeat(1, 1fr)',
           }}
-          gap={4}
+          gap={6}
           sx={linkStyles}
         >
           <VStack spacing='10px' mb={4}>

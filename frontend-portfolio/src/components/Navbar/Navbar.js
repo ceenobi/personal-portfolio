@@ -12,7 +12,7 @@ import {
   DrawerHeader,
   DrawerBody,
   useDisclosure,
-  Text
+  Text,
 } from '@chakra-ui/react'
 import { HiMenuAlt2, HiX } from 'react-icons/hi'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
@@ -64,20 +64,18 @@ export default function Navbar({ colorMode, toggleColorMode }) {
             display={{ base: 'none', md: 'block' }}
           >
             {exploreRouterMenu.map((menu) => (
-              <>
-                <Text
-                  as={NavLink}
-                  textStyle='p'
-                  key={menu.sectionId}
-                  to={`${menu.path}`}
-                  textTransform='uppercase'
-                  fontWeight='semibold'
-                  transition='all 0.3s ease-in-out'
-                  _hover={{ borderBottom: '4px solid #f582AE' }}
-                >
-                  {menu.sectionLabel}
-                </Text>
-              </>
+              <Text
+                as={NavLink}
+                textStyle='p'
+                key={menu.sectionId}
+                to={`${menu.path}`}
+                textTransform='uppercase'
+                fontWeight='semibold'
+                transition='all 0.3s ease-in-out'
+                _hover={{ borderBottom: '4px solid #f582AE' }}
+              >
+                {menu.sectionLabel}
+              </Text>
             ))}
           </HStack>
         </Flex>
@@ -128,23 +126,21 @@ export default function Navbar({ colorMode, toggleColorMode }) {
                   mt={2}
                   p={5}
                 >
-                  <>
-                    {exploreRouterMenu.map((menu) => (
-                      <Text
-                        as={NavLink}
-                        textStyle='p'
-                        textAlign='left'
-                        key={menu.sectionId}
-                        to={`${menu.path}`}
-                        textTransform='uppercase'
-                        fontWeight='semibold'
-                        transition='all 0.3s ease-in-out'
-                        onClick={isOpen ? onClose : onClose}
-                      >
-                        {menu.sectionLabel}
-                      </Text>
-                    ))}
-                  </>
+                  {exploreRouterMenu.map((menu) => (
+                    <Text
+                      as={NavLink}
+                      textStyle='p'
+                      textAlign='left'
+                      key={menu.sectionId}
+                      to={`${menu.path}`}
+                      textTransform='uppercase'
+                      fontWeight='semibold'
+                      transition='all 0.3s ease-in-out'
+                      onClick={isOpen ? onClose : onClose}
+                    >
+                      {menu.sectionLabel}
+                    </Text>
+                  ))}
                 </VStack>
               </DrawerBody>
             </DrawerContent>

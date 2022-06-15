@@ -22,8 +22,6 @@ import { motion } from 'framer-motion'
 import { client } from '../../client'
 import { Loading } from '../../constants'
 
-
-
 export default function About() {
   const [experiences, setExperiences] = useState([])
   const [abouts, setAbouts] = useState([])
@@ -140,57 +138,52 @@ export default function About() {
                 transition={{ duration: 0.5 }}
               >
                 {abouts.map((about) => (
-                  <>
-                    <Box
-                      key={about.title}
-                      as={motion.div}
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <br />
-                      <br />
-                      <Heading as='h4' fw='bold' letterSpacing='0.04em'>
-                        {about.title}
-                      </Heading>
-                      <Text textStyle='sm' mt='2rem'>
-                        {about.description}
-                      </Text>
-                    </Box>
-                  </>
+                  <Box
+                    key={about.title}
+                    as={motion.div}
+                    whileInView={{ opacity: [0, 1] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <br />
+                    <br />
+                    <Heading as='h4' fw='bold' letterSpacing='0.04em'>
+                      {about.title}
+                    </Heading>
+                    <Text textStyle='sm' mt='2rem'>
+                      {about.description}
+                    </Text>
+                  </Box>
                 ))}
                 <Divider
                   orientation='horizontal'
                   mt='2rem'
                   bg='pallete.deepPurple'
                 />
-                <>
-                  {experiences.map((experience) => (
-                    <Box
-                      as={motion.div}
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      key={experience.year}
-                      mt='2rem'
-                    >
-                      <Text textStyle='p'>{experience.year}</Text>
-                      <Box>
-                        {experience.works.map((work, index) => (
-                          <>
-                            <Box key={index}>
-                              <Text textStyle='p' fontWeight='bold'>
-                                {work.company}
-                              </Text>
-                              <Text textStyle='p'>{work.name}</Text>
-                              <UnorderedList>
-                                <ListItem fontSize='18px'>{work.desc}</ListItem>
-                              </UnorderedList>
-                            </Box>
-                          </>
-                        ))}
-                      </Box>
+
+                {experiences.map((experience) => (
+                  <Box
+                    as={motion.div}
+                    whileInView={{ opacity: [0, 1] }}
+                    transition={{ duration: 0.5 }}
+                    key={experience.year}
+                    mt='2rem'
+                  >
+                    <Text textStyle='p'>{experience.year}</Text>
+                    <Box>
+                      {experience.works.map((work, index) => (
+                        <Box key={index}>
+                          <Text textStyle='p' fontWeight='bold'>
+                            {work.company}
+                          </Text>
+                          <Text textStyle='p'>{work.name}</Text>
+                          <UnorderedList>
+                            <ListItem fontSize='18px'>{work.desc}</ListItem>
+                          </UnorderedList>
+                        </Box>
+                      ))}
                     </Box>
-                  ))}
-                </>
+                  </Box>
+                ))}
               </Box>
             </Flex>
           )}

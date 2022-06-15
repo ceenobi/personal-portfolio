@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
 }
 .header-effect {
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
@@ -24,6 +25,10 @@ body {
 @keyframes example {
   from {color: #b41111;}
   to {color: #D69E2E;}
+}
+
+a {
+  text-decoration: none!important;
 }
 
 

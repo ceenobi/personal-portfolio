@@ -39,7 +39,7 @@ export default function Header({ color }) {
           </VStack>
         </Flex>
         <Box mt={20} mb={6}>
-          <Text textStyle='h2' mb={4}>
+          <Text textStyle='h2' mb={6}>
             <Box as='span' color={color}>
               Hello! I'm{' '}
             </Box>
@@ -78,6 +78,7 @@ export default function Header({ color }) {
           p={3}
           mt={10}
           w='245px'
+          textAlign='center'
         >
           <LinkOverlay
             href='https://drive.google.com/file/d/1cBqQwkIlBfi26kf5hxMMl7lnTpZMWUQ7/view?usp=sharing'
