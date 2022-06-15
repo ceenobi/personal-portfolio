@@ -113,7 +113,8 @@ const customTheme = extendTheme(
           fontWeight: 'extrabold',
           transition: 'all 0.3s ease-in-out',
           _hover: {
-            color: 'pallete.lightPink',          },
+            color: 'pallete.lightPink'
+          },
         },
         a: {
           fontSize: '16px',

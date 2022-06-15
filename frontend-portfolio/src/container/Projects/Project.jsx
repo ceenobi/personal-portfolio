@@ -78,7 +78,7 @@ export default function Project() {
           flexWrap='wrap'
           m='4rem 0 2rem'
         >
-          {['Web App', 'UI/UX', 'React Js', 'All'].map((item, index) => (
+          {['Web App', 'UI/UX', 'React Js', 'Next Js', 'All'].map((item, index) => (
             <Box
               textStyle='p'
               fontWeight='bold'
@@ -99,7 +99,7 @@ export default function Project() {
         {loading ? (
           <Loading />
         ) : (
-          <Grid
+          <Grid Grid
             templateColumns={{
               sm: 'repeat(2, 1fr)',
               md: 'repeat(2, 1fr)',
