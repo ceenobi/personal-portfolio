@@ -26,6 +26,7 @@ function App() {
               <Route
                 key={i}
                 path={route.path}
+                exact
                 element={
                   <Suspense fallback={<Loading />}>
                     <route.element color={color} bg={bg} />

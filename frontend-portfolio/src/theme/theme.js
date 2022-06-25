@@ -98,11 +98,11 @@ const customTheme = extendTheme(
         'html, body': {
           fontSize: 'sm',
           color:
-            props.colorMode === 'dark'
+            props.colorMode === 'light'
               ? 'pallete.deepPurple'
               : 'pallete.goldDark',
           bg:
-            props.colorMode === 'dark'
+            props.colorMode === 'light'
               ? 'pallete.lightYellow'
               : 'pallete.mildDark',
           lineHeight: 'tall',
@@ -122,17 +122,17 @@ const customTheme = extendTheme(
           transition: 'all 0.3s ease-in-out',
         },
         '.project-works': {
-          bg: props.colorMode === 'dark' ? 'pallete.lightPink' : 'red.800',
+          bg: props.colorMode === 'light' ? 'pallete.lightPink' : 'red.800',
           m: '0.5rem',
           p: '0.5rem 0.5rem',
           borderRadius: 'md',
           transition: 'all 0.3s ease-in-out',
           _hover: {
-            bg: props.colorMode === 'dark' ? 'pallete.lightPink' : 'blue.800',
+            bg: props.colorMode === 'light' ? 'pallete.lightPink' : 'blue.800',
           },
         },
         '.project-works-active': {
-          bg: props.colorMode === 'dark' ? 'pallete.eggYellow' : 'blue.800',
+          bg: props.colorMode === 'light' ? 'pallete.eggYellow' : 'blue.800',
         },
       }),
     },

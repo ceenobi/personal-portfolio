@@ -28,9 +28,9 @@ export default function Footer() {
         <Grid
           templateColumns={{
             sm: 'repeat(1, 1fr)',
-            md: 'repeat(4, 1fr)',
-            lg: 'repeat(4, 1fr)',
-            xl: 'repeat(4, 1fr)',
+            md: 'repeat(3, 1fr)',
+            lg: 'repeat(3, 1fr)',
+            xl: 'repeat(3, 1fr)',
             base: 'repeat(1, 1fr)',
           }}
           gap={6}
@@ -38,7 +38,7 @@ export default function Footer() {
         >
           <VStack spacing='10px' mb={4}>
             <Text textStyle='p' fontWeight='bold'>
-              Portfolio
+              Info
             </Text>
             <VStack mt={4}>
               <Text as={ReactRouterLink} to='/'>
@@ -49,7 +49,7 @@ export default function Footer() {
               </Text>
             </VStack>
           </VStack>
-          <VStack spacing='10px' mb={4}>
+          {/* <VStack spacing='10px' mb={4}>
             <Text textStyle='p' fontWeight='bold'>
               Article
             </Text>
@@ -61,7 +61,7 @@ export default function Footer() {
                 Wordpress
               </Text>
             </VStack>
-          </VStack>
+          </VStack> */}
           <VStack spacing='10px' mb={4}>
             <Text textStyle='p' fontWeight='bold'>
               Hire me
@@ -130,6 +130,7 @@ export default function Footer() {
           <HStack spacing='16px'>
             <Text textTransform='uppercase'>@2022 Cobi</Text>
             <Text textTransform='uppercase'>All rights reserved</Text>
+            <Text textTransform='uppercase'>Powered by Sanity</Text>
           </HStack>
         </Flex>
       </Container>

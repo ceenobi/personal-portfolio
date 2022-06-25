@@ -5,9 +5,9 @@ const exploreRouterMenu = [
     path: '',
   },
   {
-    sectionId: 'Projects',
-    sectionLabel: 'Projects',
-    path: 'projects',
+    sectionId: 'Portfolio',
+    sectionLabel: 'Portfolio',
+    path: 'portfolio',
   },
   {
     sectionId: 'About',

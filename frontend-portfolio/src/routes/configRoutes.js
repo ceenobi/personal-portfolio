@@ -4,10 +4,11 @@ import index from '../components'
 const routes = [
   {
     path: '/',
+    exact: true,
     element: index,
   },
   {
-    path: '/projects',
+    path: '/portfolio',
     element: lazy(() => import('../container/Projects/Project')),
   },
   {

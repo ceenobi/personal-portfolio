@@ -28,7 +28,7 @@ export default function Header({ color }) {
         >
           <VStack alignItems='center' spacing={0}>
             <Text textStyle='h1' color='' className='text-effect'>
-              Blog.
+              Code.
             </Text>
             <Text textStyle='h1' className='header-effect'>
               Showcase.

@@ -121,8 +121,6 @@ export default function Navbar({ colorMode, toggleColorMode }) {
               <DrawerBody boxShadow='xl'>
                 <VStack
                   spacing={10}
-                  justify='start'
-                  position='absolute'
                   mt={2}
                   p={5}
                 >
