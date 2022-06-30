@@ -107,11 +107,12 @@ const customTheme = extendTheme(
               : 'pallete.mildDark',
           lineHeight: 'tall',
         },
-        _activeLink: {
+        '.activeLink': {
           outline: 'none',
           borderBottom: '4px solid #f582AE',
           fontWeight: 'extrabold',
           transition: 'all 0.3s ease-in-out',
+          fontSize: '18px',
           _hover: {
             color: 'pallete.lightPink',
           },

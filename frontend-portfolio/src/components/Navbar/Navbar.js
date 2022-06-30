@@ -12,17 +12,18 @@ import {
   DrawerHeader,
   DrawerBody,
   useDisclosure,
-  Text,
 } from '@chakra-ui/react'
 import { HiMenuAlt2, HiX } from 'react-icons/hi'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import { exploreRouterMenu } from '../../constants'
 
 export default function Navbar({ colorMode, toggleColorMode }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const location = useLocation()
+
   const outerBoxStyles = {
     background: 'rgba(255,255,255,0.25)',
     border: '1px solid rgba(255,255,255,0.18)',
@@ -30,11 +31,7 @@ export default function Navbar({ colorMode, toggleColorMode }) {
     backdropBlur: '2xl',
   }
 
-  const innerBoxStyles = {
-    background: 'rgba(255,255,255,0.25)',
-    backdropFilter: 'auto',
-    backdropBlur: '2xl',
-  }
+  const bg = colorMode === 'light' ? 'pallete.lightYellow' : 'pallete.mildDark'
 
   return (
     <Box
@@ -64,18 +61,17 @@ export default function Navbar({ colorMode, toggleColorMode }) {
             display={{ base: 'none', md: 'block' }}
           >
             {exploreRouterMenu.map((menu) => (
-              <Text
-                as={NavLink}
-                textStyle='p'
+              <NavLink
                 key={menu.sectionId}
                 to={`${menu.path}`}
-                textTransform='uppercase'
-                fontWeight='semibold'
-                transition='all 0.3s ease-in-out'
-                _hover={{ borderBottom: '4px solid #f582AE' }}
+                className={(navData) =>
+                  navData.isActive && location.pathname !== '/'
+                    ? 'activeLink'
+                    : ''
+                }
               >
                 {menu.sectionLabel}
-              </Text>
+              </NavLink>
             ))}
           </HStack>
         </Flex>
@@ -101,7 +97,7 @@ export default function Navbar({ colorMode, toggleColorMode }) {
             transition={{ duration: 0.85, ease: 'easeOut' }}
           >
             <DrawerOverlay />
-            <DrawerContent sx={innerBoxStyles}>
+            <DrawerContent bg={bg}>
               <DrawerHeader>
                 <Flex justify='space-between'>
                   <Icon as={HiX} w={8} h={8} onClick={onClose} />
@@ -119,25 +115,20 @@ export default function Navbar({ colorMode, toggleColorMode }) {
                 </Flex>
               </DrawerHeader>
               <DrawerBody boxShadow='xl'>
-                <VStack
-                  spacing={10}
-                  mt={2}
-                  p={5}
-                >
+                <VStack spacing={10} mt={2} p={5}>
                   {exploreRouterMenu.map((menu) => (
-                    <Text
-                      as={NavLink}
-                      textStyle='p'
-                      textAlign='left'
+                    <NavLink
                       key={menu.sectionId}
                       to={`${menu.path}`}
-                      textTransform='uppercase'
-                      fontWeight='semibold'
-                      transition='all 0.3s ease-in-out'
                       onClick={isOpen ? onClose : onClose}
+                      className={(navData) =>
+                        navData.isActive && location.pathname !== '/'
+                          ? 'activeLink'
+                          : ''
+                      }
                     >
                       {menu.sectionLabel}
-                    </Text>
+                    </NavLink>
                   ))}
                 </VStack>
               </DrawerBody>

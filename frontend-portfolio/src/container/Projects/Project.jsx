@@ -71,10 +71,10 @@ export default function Project() {
           <Heading as='h4' fw='bold' letterSpacing='0.04em'>
             Practise
           </Heading>
-          <Text textStyle='p'>Projects I built from learning how to code </Text>
+          <Text textStyle='p'>Project Hands-on</Text>
         </Box>
         <Flex
-          direction='row'
+          direction='row' 
           justify='center'
           align='center'
           flexWrap='wrap'

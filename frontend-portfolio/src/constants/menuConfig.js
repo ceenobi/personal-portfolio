@@ -2,17 +2,17 @@ const exploreRouterMenu = [
   {
     sectionId: 'Home',
     sectionLabel: 'Home',
-    path: '',
+    path: '/',
   },
   {
     sectionId: 'Portfolio',
     sectionLabel: 'Portfolio',
-    path: 'portfolio',
+    path: '/portfolio',
   },
   {
     sectionId: 'About',
     sectionLabel: 'About',
-    path: 'about',
+    path: '/about',
   },
 ]
 
